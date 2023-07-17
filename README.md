@@ -6,4 +6,4 @@
 
 ### Request Body:
 
-> { "message" : "Wow! you wont $100k" }
+> { "message" : "Wow! you won $100k" }
