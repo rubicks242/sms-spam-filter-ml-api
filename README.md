@@ -1,4 +1,4 @@
-# sms-spam-filter-ml
+## SMS Spam Filter
 
 ### Endpoint:
 
