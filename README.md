@@ -4,6 +4,8 @@
 
 > /predict [POST]
 
+> /message-count [GET]
+
 ### Request Body:
 
 > { "message" : "Wow! you won $100k" }
@@ -16,3 +18,13 @@
     "naive_bayes": "spam",
     "svc": "spam"
 }
+
+>   {
+        'spam_count': 747,
+        'ham_count': 4573
+    }
+
+### Example usage:
+
+GITHUB_URL: https://github.com/mssandeepkamath/sms-spam-filter-android.git
+
