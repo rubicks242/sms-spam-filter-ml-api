@@ -22,6 +22,8 @@ stem = PorterStemmer()
 
 # Load the CountVectorizer
 cv = joblib.load('count_vectorizer.pkl')
+dataset = pd.read_csv('spam.csv', encoding='latin-1')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -48,6 +50,21 @@ def predict():
         'svc': le.classes_[svc_prediction],
         'logistic_regression': le.classes_[logistic_regression_prediction],
         'decision_tree': le.classes_[decision_tree_prediction]
+    }
+
+    response = make_response(jsonify(results))
+    response.headers['Content-Type'] = 'application/json'
+    return response
+
+@app.route('/message-count', methods=['GET'])
+def message_count():
+    # Count the number of spam and ham messages
+    spam_count = len(dataset[dataset['v1'] == 'spam'])
+    ham_count = len(dataset[dataset['v1'] == 'ham'])
+
+    results = {
+        'spam_count': spam_count,
+        'ham_count': ham_count
     }
 
     response = make_response(jsonify(results))
