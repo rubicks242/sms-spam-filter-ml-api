@@ -1,4 +1,4 @@
-# sms-spam-filter-ml
+## SMS Spam Filter
 
 ### Endpoint:
 
@@ -6,4 +6,13 @@
 
 ### Request Body:
 
-> { "message" : "Wow! you wont $100k" }
+> { "message" : "Wow! you won $100k" }
+
+### Response Body:
+
+> {
+    "decision_tree": "ham",
+    "logistic_regression": "spam",
+    "naive_bayes": "spam",
+    "svc": "spam"
+}
